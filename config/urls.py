@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from authentication.views import force_reset_insecure_password
+from authentication.sites import custom_admin_site
 
 urlpatterns = [
-    url(r'^admin/login', force_reset_insecure_password),
+    url(r'^admin/password_change/$', custom_admin_site.password_change),
+    url(r'^admin/login/$', custom_admin_site.login),
     url(r'^admin/', admin.site.urls),
 ]

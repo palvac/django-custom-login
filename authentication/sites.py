@@ -28,7 +28,7 @@ class CustomAdminSite(AdminSite):
                 request, extra_context=extra_context
             )
             if response.status_code == 302 and request.user.is_authenticated():
-                request.session["force_reset"] = False
+                request.session["force_reset_password"] = False
             return response
         return super(CustomAdminSite, self).password_change(request, extra_context=extra_context)
 
@@ -40,4 +40,8 @@ class CustomAdminSite(AdminSite):
             return False
 
 
+custom_admin_site = CustomAdminSite()
+
+
 force_reset_insecure_password = CustomAdminSite().login
+password_change = CustomAdminSite().password_change
