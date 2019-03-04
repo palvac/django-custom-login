@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from authentication.views import force_reset_insecure_password
+
 urlpatterns = [
+    url(r'^admin/login', force_reset_insecure_password),
     url(r'^admin/', admin.site.urls),
 ]
