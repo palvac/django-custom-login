@@ -41,7 +41,3 @@ class CustomAdminSite(AdminSite):
 
 
 custom_admin_site = CustomAdminSite()
-
-
-force_reset_insecure_password = CustomAdminSite().login
-password_change = CustomAdminSite().password_change
